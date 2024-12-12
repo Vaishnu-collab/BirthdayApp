@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+<head>
+ 
+  <title>Birthday App</title>
+  <style>
+    *{font-size: 40px;}
+    body{background-color: rgb(99, 255, 255);}
+    .btn{color:rgb(0, 0, 0);width: 25%;}
+  </style>
+</head>
+<body>
+  <center>
+    <h1>Birthday App</h1>
+    <form onsubmit="compute()">
+
+      <input type="submit"  value="Add" class="btn">
+      <input type="submit"  value="Remove" class="btn">
+      <input type="submit"  value="Show" class="btn">
+
+    </form>
+    <h2 id="msg"></h2>
+
+    <script>
+      let names=["Sneha,Reshma"];
+      function compute(){
+        event.preventDefault();
+        let action=document.activeElement.value;
+
+        if(action==="Add"){
+          let n=prompt("enter friends name");
+          if(n!==""){
+            names.push(n);
+          }
+          msg.innerHTML=names;
+        }
+        else if(action==="Remove"){
+          let n=prompt("enter name to be removed");
+          if(n!==""){
+            let pos=names.indexOf(n);
+            if(pos===-1){
+              alert(n+"not found");
+            }
+            else{
+              names.splice(pos,1);
+              alert(n+"removed");
+            }
+          }
+          msg.innerHTML=names;
+        }
+        else if(action==="Show"){
+          msg.innerHTML=names;
+        }
+      }
+
+
+    </script>
+  </center>
+</body>
+</html>
